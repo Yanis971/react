@@ -3,9 +3,8 @@ import CustomInput from '../../components/CustomInput'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuthContext } from '../../contexts/AuthContext';
-import { apiRoot } from '../../constants/apiConstant';
 import ButtonLoader from '../../components/Loader/ButtonLoader';
-
+import { apiRoot } from '../../constants/apiConstant';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -16,9 +15,9 @@ const Login = () => {
   const { signIn } = useAuthContext();
   //on récupère le hook de navigation
   const navigate = useNavigate();
-
+  
   const handleSubmit = (event) => {
-    event.preventDefault(); // empêche le fonctionnement par défaut du formulaire
+    event.preventDefault() //empêche le fonctionnement par défaut du formulaire
     setIsLoading(true);
     axios.post(`${apiRoot}/login`, {
       email,
@@ -27,25 +26,27 @@ const Login = () => {
       if (response.data.email) {
         const user = {
           userId: response.data.id,
-          email: response.data.email,
-          name: response.data.name
+          nickname: response.data.nickname,
+          email: response.data.email
         }
 
         try {
           signIn(user);
           setIsLoading(false);
-          navigate('/')
+          navigate('/');
         } catch (error) {
           setIsLoading(false);
-          console.log(`Erreur lors de la création de la session : ${error}`)
+          console.log(`Erreur lors de la création de la session: ${error}`);
         }
 
+      } else {
+        setIsLoading(false);
+        console.log(`Erreur lors de la réponse serveur: ${response}`)
       }
     }).catch((error) => {
       setIsLoading(false);
-      console.log(`Erreur lors de l'enregistrement : ${error}`)
+      console.log(`Erreur lors de l'enregistrement de l'user: ${error}`);
     })
-
   }
 
 

@@ -11,15 +11,15 @@ import AppRouter from './router/AppRouter.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* on enregistre le context d'authentification */}
+    {/* on enregiste le context d'authentification */}
     <AuthContextProvider>
       {/* on enregistre le store */}
       <Provider store={store}>
-        {/* on enregistre le Approuter */}
-        <AppRouter>
+        {/* on enregistre le AppRouter */}
+        <AppRouter/>
 
-        </AppRouter>
       </Provider>
+
     </AuthContextProvider>
   </React.StrictMode>,
 )

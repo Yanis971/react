@@ -18,16 +18,13 @@ export default {
         green_top: 'rgba(26, 173, 78, 1)',
       },
       animation: {
-        slideup: 'slideup 1s ease-in-out'
+        slideup: 'slideup 1s ease-in-out',
+        slideup2: 'slideup 500ms ease-in-out',
       },
       keyframes: {
         slideup: {
-          from: {
-            opacity: 0, transform: 'translateY(25%)'
-          },
-          to: {
-            opacity: 1, transform: 'none'
-          }
+          from: { opacity: 0, transform: 'translateY(25%)' },
+          to: { opacity: 1, transform: 'none' }
         }
       }
     },
