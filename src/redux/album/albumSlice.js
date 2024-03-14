@@ -10,7 +10,8 @@ const albumSlice = createSlice({
     albums: [], //on initialise un tableau vide pour stocker la futur liste d'albums
     loading: false,// on initialise le state loading à false pour pouvoir gérer l'attente des requetes asynchrone
     albumDetail: {},
-    searchAlbum: []
+    searchAlbum: [],
+    searchArtis: []
   },
   //methode qui permet de remplir les states (mise en rayon)
   reducers: {
@@ -26,10 +27,13 @@ const albumSlice = createSlice({
     setSearchAlbum: (state, action) => {
       state.searchAlbum = action.payload
     },
+    setSearchArtist: (state, action) => {
+      state.searchAlbum = action.payload
+    },
   }
 });
 
-export const { setAlbums, setLoading, setAlbumDetail, setSearchAlbum } = albumSlice.actions;
+export const { setAlbums, setLoading, setAlbumDetail, setSearchAlbum, setSearchArtist } = albumSlice.actions;
 
 //on crée la méthode qui permet de récupérer les données des albums de la BDD
 export const fetchAlbums = () => async dispatch => {
@@ -70,13 +74,17 @@ export const fetchSearch = (searchWord) => async dispatch => {
   try {
     //on passe le state loading à true pour signifier qu'on attend une réponse
     dispatch(setLoading(true));
-    const response = await axios.get(`${apiUrl}/alba?page=1&title=${searchWord}&isActive=true`);
+    const responseAlbum = await axios.get(`${apiUrl}/alba?page=1&title=${searchWord}&isActive=true`);
+    const responseArtist = await axios.get(`${apiUrl}/alba?page=1&artist.name=${searchWord}&isActive=true`);
     dispatch(setSearchAlbum(response.data));
+    dispatch(setSearchArtist(response.data));
     dispatch(setLoading(false));
   } catch (error) {
     console.log(`Erreur sur fetchAlbumDetail: ${error}`);
     dispatch(setLoading(false));
   }
+
+
 }
 // On exporte notre reducer
 export default albumSlice.reducer;
