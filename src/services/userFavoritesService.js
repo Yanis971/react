@@ -1,8 +1,8 @@
-import  axios  from "axios"
+import axios from "axios"
 import { apiUrl } from "../constants/apiConstant";
 
 export const fetchAddRemoveFavorite = async (arrayIds, userId) => {
-  
+
   const dataFavorite = {
     albums: arrayIds
   }
@@ -10,10 +10,10 @@ export const fetchAddRemoveFavorite = async (arrayIds, userId) => {
   try {
     axios.defaults.headers.patch['Content-Type'] = 'application/merge-patch+json';
     const response = await axios.patch(`${apiUrl}/users/${userId}`, dataFavorite);
-    console.log('====================================');
-    console.log(response.data);
-    console.log('====================================');
+
+
+
   } catch (error) {
-    console.log(`erreur lors du fetchAddRemoveFavorite : ${error}`)
+
   }
 }
