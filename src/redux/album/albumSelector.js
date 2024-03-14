@@ -4,11 +4,11 @@ import { createSelector } from "@reduxjs/toolkit";
 const selectAlbums = state => state.albums.albums;
 const selectLoading = state => state.albums.loading;
 const selectAlbumDetail = state => state.albums.albumDetail;
-const selectSearchAlbum = state => state.albums.seachAlbum;
+const selectSearchAlbum = state => state.albums.searchAlbum;
 //on crée le selector 
 export const selectAlbumsData = createSelector(
   [selectAlbums, selectLoading, selectAlbumDetail, selectSearchAlbum],
   //on effectue une destructuration des données
-  (albums, loading, albumDetail) => ({ albums, loading, albumDetail })
+  (albums, loading, albumDetail, searchAlbum) => ({ albums, loading, albumDetail, searchAlbum })
 
 );

@@ -70,7 +70,7 @@ export const fetchSearch = (searchWord) => async dispatch => {
   try {
     //on passe le state loading à true pour signifier qu'on attend une réponse
     dispatch(setLoading(true));
-    const response = await axios.get(`${apiUrl}/alba?page=1&title=${searchWord}f&isActive=true`);
+    const response = await axios.get(`${apiUrl}/alba?page=1&title=${searchWord}&isActive=true`);
     dispatch(setSearchAlbum(response.data));
     dispatch(setLoading(false));
   } catch (error) {
