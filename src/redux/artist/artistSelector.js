@@ -5,7 +5,5 @@ const selectArtistDetail = state => state.artists.artistDetail;
 
 export const selectArtistData = createSelector(
     [selectLoading, selectArtistDetail],
-    (loading, artistDetail) => (
-        { loading, artistDetail }
-    )
+    (loading, artistDetail) => ( { loading, artistDetail })
 )

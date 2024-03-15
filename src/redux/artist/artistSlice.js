@@ -4,7 +4,7 @@ import { apiUrl } from "../../constants/apiConstant";
 
 const artistSlice = createSlice({
     name: 'artists',
-    initialState: {
+    initialState:{
         loading: false,
         artistDetail: {},
     },

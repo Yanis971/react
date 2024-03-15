@@ -6,11 +6,11 @@ import artistReducer from './artist/artistSlice';
 
 const store = configureStore({
   reducer: {
-    // Ajouter les futurs reducers ici
-    albums: albumReducer,
-    player: playerReducer,
-    user: userReducer,
-    artist: artistReducer,
+  // Ajouter les futurs reducers ici
+  albums: albumReducer,
+  player: playerReducer,
+  user: userReducer,
+  artists: artistReducer,
   }
 })
 
