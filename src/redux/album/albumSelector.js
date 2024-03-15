@@ -6,7 +6,6 @@ const selectLoading = state => state.albums.loading;
 const selectAlbumDetail = state => state.albums.albumDetail;
 const selectSearchAlbum = state => state.albums.searchAlbum;
 const selectSearchArtist = state => state.albums.searchArtist;
-
 //on crée le selector 
 export const selectAlbumsData = createSelector(
   [selectAlbums, selectLoading, selectAlbumDetail, selectSearchAlbum, selectSearchArtist],

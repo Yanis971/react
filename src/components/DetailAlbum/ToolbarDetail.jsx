@@ -34,7 +34,6 @@ const ToolbarDetail = ({ dataAlbum }) => {
   //on récupère les données des slices
   const { isPlaying, activeSong } = useSelector(state => state.player);
   const {loading, userFavorite} = useSelector(selectUserData);
-  console.log('userFavoritesssss', userFavorite)
   useEffect(() => {
     dispatch(fetchUserFavorite(userId))
     checkFavorite();

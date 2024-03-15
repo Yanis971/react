@@ -3,8 +3,8 @@ import { albumUrl } from '../../constants/apiConstant'
 import HeaderInfo from './HeaderInfo'
 import HeaderCategory from './HeaderCategory'
 
-const HeaderDetail = ({ dataAlbum }) => {
-
+const HeaderDetail = ({dataAlbum}) => {
+  
   //on récupère l'image de l'album
   const imgPath = `${albumUrl}/${dataAlbum?.imagePath}`
   return (
