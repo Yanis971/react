@@ -3,13 +3,12 @@ import { artistUrl, imageUrl } from '../constants/apiConstant';
 import { Link } from 'react-router-dom';
 
 const ArtistCard = ({ dataArtist }) => {
-
   //on declare notre constante d'image
-  const imgPath = dataArtist?.artist?.imagePath
-    ? `${artistUrl}/${dataArtist?.artist?.imagePath}`
+  const imgPath = dataArtist?.imagePath
+    ? `${artistUrl}/${dataArtist?.imagePath}`
     : `${imageUrl}/artist.png`;
-  const userId = dataArtist?.artist?.id ?? 0
-  const name = dataArtist?.artist?.name ?? 'Inconnu'
+  const userId = dataArtist?.id ?? 0
+  const name = dataArtist?.name ?? 'Inconnu'
 
   return (
     <Link to={`/artist-detail/${userId}`}>
