@@ -8,6 +8,9 @@ import Playlist from "../screens/OnlineScreens/Playlist";
 import Wishlist from "../screens/OnlineScreens/Wishlist";
 import Detail from "../screens/OnlineScreens/Detail";
 import DetailArtist from "../components/DetailArtist";
+import Account from "../screens/OnlineScreens/Account";
+import AvatarList from "../screens/OnlineScreens/Account/AvatarList";
+import EditInfo from "../screens/OnlineScreens/Account/EditInfo";
 
 const OnlineRouter = createBrowserRouter([
   {
@@ -46,7 +49,19 @@ const OnlineRouter = createBrowserRouter([
       {
         path: "/artist-detail/:id",
         element: <DetailArtist />
-      }
+      },
+      {
+        path: '/account/:id',
+        element: <Account />
+      },
+      {
+        path: "/edit-avatar",
+        element: <AvatarList />
+      },
+      {
+        path: "/edit-info",
+        element: <EditInfo />
+      },
     ]
   }
 ])
